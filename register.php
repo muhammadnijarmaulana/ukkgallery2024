@@ -4,36 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Registrasi</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Halaman Registrasi</h1>
-    <form action="proses_register.php" method="post">
-        <table>
-            <tr>
-                <td>Username</td>
-                <td><input type="text" name="username"></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" name="password"></td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><input type="email" name="email"></td>
-            </tr>
-            <tr>
-                <td>Nama Lengkap</td>
-                <td><input type="text" name="namalengkap"></td>
-            </tr>
-            <tr>
-                <td>Alamat</td>
-                <td><input type="text" name="alamat"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Register"></td>
-            </tr>
-        </table>
-    </form>
+    <div class="container">
+        <h1 class="mt-5">Halaman Registrasi</h1>
+        <form action="proses_register.php" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="namalengkap">Nama Lengkap</label>
+                <input type="text" class="form-control" id="namalengkap" name="namalengkap">
+            </div>
+            <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <input type="text" class="form-control" id="alamat" name="alamat">
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
