@@ -6,10 +6,36 @@
     <title>Halaman Registrasi</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 100px;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        button[type="submit"] {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-5">Halaman Registrasi</h1>
+        <h1>Registrasi</h1>
         <form action="proses_register.php" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
