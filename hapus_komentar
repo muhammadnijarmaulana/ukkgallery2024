@@ -1,0 +1,18 @@
+<?php
+// Pastikan koneksi terhadap database sudah dilakukan
+include "koneksi.php";
+
+// Ambil komentarid dari parameter URL
+$komentarid = $_GET['komentarid'];
+
+// Hapus komentar dari database
+$sql = "DELETE FROM komentarfoto WHERE komentarid = '$komentarid'";
+if(mysqli_query($conn, $sql)){
+    echo "Komentar berhasil dihapus.";
+} else{
+    echo "ERROR: Tidak dapat menjalankan perintah $sql. " . mysqli_error($conn);
+}
+
+// Tutup koneksi database
+mysqli_close($conn);
+?>
