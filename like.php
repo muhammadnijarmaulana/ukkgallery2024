@@ -12,8 +12,9 @@ if(!isset($_SESSION['userid'])){
     // Periksa apakah pengguna sudah memberikan like pada foto ini sebelumnya
     $sql = mysqli_query($conn, "SELECT * FROM likefoto WHERE fotoid='$fotoid' AND userid='$userid'");
 
-    if(mysqli_num_rows($sql) == 1){
+    if(mysqli_num_rows($sql) > 0){
         // Pengguna sudah memberikan like pada foto ini sebelumnya
+        // Anda bisa memberikan pesan atau melakukan tindakan lain, sesuai kebutuhan
         header("location:index.php");
     } else {
         $tanggallike = date("Y-m-d");
@@ -23,3 +24,4 @@ if(!isset($_SESSION['userid'])){
     }
 }
 ?>
+
