@@ -12,17 +12,17 @@
 </head>
 <body>
     <div class="container">
-        <h1>Halaman Landing</h1>
+        <h1 class="mt-4 mb-4">Halaman Landing</h1>
         <?php
             session_start();
             if(!isset($_SESSION['userid'])){
         ?>
-                <ul class="nav">
-                    <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-                </ul>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+            </ul>
         <?php
-            }else{
+            } else {
         ?>   
             <p>Selamat datang <b><?=$_SESSION['namalengkap']?></b></p>
             <ul class="nav">
@@ -34,51 +34,50 @@
         <?php
             }
         ?>
-        
 
-        <table class="table table-striped mt-3">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Judul</th>
-                    <th>Deskripsi</th>
-                    <th>Foto</th>
-                    <th>Uploader</th>
-                    <th>Jumlah Like</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    include "koneksi.php";
-                    $sql=mysqli_query($conn,"select * from foto,user where foto.userid=user.userid");
-                    while($data=mysqli_fetch_array($sql)){
-                ?>
+        <div class="table-responsive mt-4">
+            <table class="table table-striped">
+                <thead>
                     <tr>
-                        <td><?=$data['fotoid']?></td>
-                        <td><?=$data['judulfoto']?></td>
-                        <td><?=$data['deskripsifoto']?></td>
-                        <td>
-                            <img src="gambar/<?=$data['lokasifile']?>" width="200px" class="img-fluid">
-                        </td>
-                        <td><?=$data['namalengkap']?></td>
-                        <td>
-                            <?php
-                                $fotoid=$data['fotoid'];
-                                $sql2=mysqli_query($conn,"select * from likefoto where fotoid='$fotoid'");
-                                echo mysqli_num_rows($sql2);
-                            ?>
-                        </td>
-                        <td>
-                            <a href="like.php?fotoid=<?=$data['fotoid']?>" class="btn btn-primary">Like</a>
-                            <a href="komentar.php?fotoid=<?=$data['fotoid']?>" class="btn btn-secondary">Komentar</a>
-                        </td>
+                        <th>ID</th>
+                        <th>Judul</th>
+                        <th>Deskripsi</th>
+                        <th>Foto</th>
+                        <th>Uploader</th>
+                        <th>Jumlah Like</th>
+                        <th>Aksi</th>
                     </tr>
-                <?php
-                    }
-                ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php
+                        include "koneksi.php";
+                        $sql=mysqli_query($conn,"select * from foto,user where foto.userid=user.userid");
+                        while($data=mysqli_fetch_array($sql)){
+                    ?>
+                        <tr>
+                            <td><?=$data['fotoid']?></td>
+                            <td><?=$data['judulfoto']?></td>
+                            <td><?=$data['deskripsifoto']?></td>
+                            <td><img src="gambar/<?=$data['lokasifile']?>" width="200px" class="img-fluid"></td>
+                            <td><?=$data['namalengkap']?></td>
+                            <td>
+                                <?php
+                                    $fotoid=$data['fotoid'];
+                                    $sql2=mysqli_query($conn,"select * from likefoto where fotoid='$fotoid'");
+                                    echo mysqli_num_rows($sql2);
+                                ?>
+                            </td>
+                            <td>
+                                <a href="like.php?fotoid=<?=$data['fotoid']?>" class="btn btn-primary">Like</a>
+                                <a href="komentar.php?fotoid=<?=$data['fotoid']?>" class="btn btn-secondary">Komentar</a>
+                            </td>
+                        </tr>
+                    <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
