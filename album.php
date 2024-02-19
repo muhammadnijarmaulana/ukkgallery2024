@@ -4,7 +4,6 @@
         header("location:login.php");
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,24 +12,21 @@
     <title>Halaman Album</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Tambahkan gaya kustom di sini jika diperlukan */
-    </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-4 mb-4">Halaman Album</h1>
-        <p>Selamat datang <b><?=$_SESSION['namalengkap']?></b></p>
+        <h1 class="mt-4 text-center">Halaman Album</h1>
+        <p class="mt-4 text-center">Selamat datang <b><?php echo isset($_SESSION['namalengkap']) ? $_SESSION['namalengkap'] : ''; ?></b></p>
         
-        <ul class="nav">
+        <ul class="nav nav-pills justify-content-center">
             <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="album.php">Album</a></li>
+            <li class="nav-item"><a class="nav-link active" href="album.php">Album</a></li>
             <li class="nav-item"><a class="nav-link" href="foto.php">Foto</a></li>
             <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
         </ul>
 
         <div class="card mt-4">
-            <div class="card-header">
+            <div class="card-header bg-primary text-white">
                 Tambah Album
             </div>
             <div class="card-body">
@@ -49,12 +45,12 @@
         </div>
 
         <div class="card mt-4">
-            <div class="card-header">
+            <div class="card-header bg-success text-white">
                 Daftar Album
             </div>
             <div class="card-body">
-                <table class="table">
-                    <thead>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
                         <tr>
                             <th>ID</th>
                             <th>Nama</th>
@@ -71,13 +67,13 @@
                             while($data=mysqli_fetch_array($sql)){
                         ?>
                                 <tr>
-                                    <td><?=$data['albumid']?></td>
-                                    <td><?=$data['namaalbum']?></td>
-                                    <td><?=$data['deskripsi']?></td>
-                                    <td><?=$data['tanggaldibuat']?></td>
+                                    <td><?php echo $data['albumid']; ?></td>
+                                    <td><?php echo $data['namaalbum']; ?></td>
+                                    <td><?php echo $data['deskripsi']; ?></td>
+                                    <td><?php echo $data['tanggaldibuat']; ?></td>
                                     <td>
-                                        <a href="hapus_album.php?albumid=<?=$data['albumid']?>" class="btn btn-danger">Hapus</a>
-                                        <a href="edit_album.php?albumid=<?=$data['albumid']?>" class="btn btn-warning">Edit</a>
+                                        <a href="hapus_album.php?albumid=<?php echo $data['albumid']; ?>" class="btn btn-danger">Hapus</a>
+                                        <a href="edit_album.php?albumid=<?php echo $data['albumid']; ?>" class="btn btn-warning">Edit</a>
                                     </td>
                                 </tr>
                         <?php
@@ -94,4 +90,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
