@@ -28,8 +28,12 @@
         label {
             font-weight: bold;
         }
-        button[type="submit"] {
+        button {
             width: 100%;
+        }
+        .register-link {
+            margin-top: 10px;
+            text-align: center;
         }
     </style>
 </head>
@@ -47,6 +51,9 @@
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
+        <div class="register-link">
+            <p>Belum punya akun?<button type="button" class="btn btn-link" onclick="location.href='register.php'">Registrasi Disini</button></a>
+        </div>
     </div>
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
