@@ -68,6 +68,7 @@
                                 ?>
                             </td>
                             <td>
+                                <a href="unlike.php?fotoid=<?=$data['fotoid']?>" class="btn btn-danger">Unlike</a>
                                 <a href="like.php?fotoid=<?=$data['fotoid']?>" class="btn btn-primary">Like</a>
                                 <a href="komentar.php?fotoid=<?=$data['fotoid']?>" class="btn btn-secondary">Komentar</a>
                             </td>
