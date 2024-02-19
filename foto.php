@@ -4,7 +4,6 @@
         header("location:login.php");
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,18 +15,18 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-4 mb-4">Halaman Foto</h1>
-        <p>Selamat datang <b><?php echo isset($_SESSION['namalengkap']) ? $_SESSION['namalengkap'] : ''; ?></b></p>
+        <h1 class="mt-4 text-center">Halaman Foto</h1>
+        <p class="mt-4 text-center">Selamat datang <b><?php echo isset($_SESSION['namalengkap']) ? $_SESSION['namalengkap'] : ''; ?></b></p>
         
-        <ul class="nav">
+        <ul  class="nav nav-pills justify-content-center">
             <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="album.php">Album</a></li>
-            <li class="nav-item"><a class="nav-link" href="foto.php">Foto</a></li>
+            <li class="nav-item"><a class="nav-link active" href="foto.php">Foto</a></li>
             <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
         </ul>
 
         <div class="card mt-4">
-            <div class="card-header">
+            <div class="card-header bg-primary text-white">
                 Tambah Foto
             </div>
             <div class="card-body">
@@ -65,12 +64,12 @@
         </div>
 
         <div class="card mt-4">
-            <div class="card-header">
+            <div class="card-header bg-success text-white">
                 Daftar Foto
             </div>
             <div class="card-body">
-                <table class="table">
-                    <thead>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
                         <tr>
                             <th>ID</th>
                             <th>Judul</th>
@@ -95,7 +94,7 @@
                                     <td><?php echo $data['deskripsifoto']; ?></td>
                                     <td><?php echo $data['tanggalunggah']; ?></td>
                                     <td>
-                                        <img src="gambar/<?php echo $data['lokasifile']; ?>" width="200px">
+                                        <img src="gambar/<?php echo $data['lokasifile']; ?>" width="200px" class="img-thumbnail">
                                     </td>
                                     <td><?php echo $data['namaalbum']; ?></td>
                                     <td>
@@ -123,4 +122,4 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-</html>
+</html
