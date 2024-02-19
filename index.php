@@ -7,37 +7,83 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Menambahkan gaya kustom di sini jika diperlukan */
+        body {
+            padding-top: 20px;
+            background-color: #f8f9fa;
+        }
+        .nav-item {
+            margin-right: 10px;
+        }
+        .table-responsive {
+            margin-top: 20px;
+        }
+        /* Stylize table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* Style buttons */
+        .btn {
+            margin-right: 5px;
+        }
+        /* Responsiveness for images */
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+        h1 {
+            color: #333;
+        }
+        .nav-link {
+            color: #007bff;
+        }
+        .nav-link:hover {
+            color: #0056b3;
+        }
+        .btn-primary, .btn-danger, .btn-secondary {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-4 mb-4">Halaman Landing</h1>
+        <h1 class="mt-4 mb-4 text-center">Halaman Landing</h1>
         <?php
             session_start();
             if(!isset($_SESSION['userid'])){
         ?>
-            <ul class="nav">
+            <ul class="nav justify-content-end">
                 <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
                 <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
             </ul>
         <?php
             } else {
         ?>   
-            <p>Selamat datang <b><?=$_SESSION['namalengkap']?></b></p>
-            <ul class="nav">
-                <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="album.php">Album</a></li>
-                <li class="nav-item"><a class="nav-link" href="foto.php">Foto</a></li>
-                <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
-            </ul>
+            <p class="text-center">Selamat datang <b><?=$_SESSION['namalengkap']?></b></p>
+            
+        <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="album.php">Album</a></li>
+            <li class="nav-item"><a class="nav-link" href="foto.php">Foto</a></li>
+            <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+        </ul>
+
         <?php
             }
         ?>
 
         <div class="table-responsive mt-4">
             <table class="table table-striped">
-                <thead>
+                <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
                         <th>Judul</th>
@@ -68,8 +114,8 @@
                                 ?>
                             </td>
                             <td>
-                                <a href="unlike.php?fotoid=<?=$data['fotoid']?>" class="btn btn-danger">Unlike</a>
                                 <a href="like.php?fotoid=<?=$data['fotoid']?>" class="btn btn-primary">Like</a>
+                                <a href="unlike.php?fotoid=<?=$data['fotoid']?>" class="btn btn-danger">Unlike</a>
                                 <a href="komentar.php?fotoid=<?=$data['fotoid']?>" class="btn btn-secondary">Komentar</a>
                             </td>
                         </tr>
