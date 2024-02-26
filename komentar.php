@@ -99,6 +99,7 @@
                             <td><?= $data['namalengkap'] ?></td>
                             <td><?= $data['isikomentar'] ?></td>
                             <td><?= $data['tanggalkomentar'] ?></td>
+                            <td><a href="hapus_komentar.php?komentarid=<?=$data['komentarid']?>" class="btn btn-danger">Hapus</a></td>
                         </tr>
                     <?php
                         }
