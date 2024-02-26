@@ -34,16 +34,27 @@
                 $sql=mysqli_query($conn,"select * from album where albumid='$albumid'");
                 while($data=mysqli_fetch_array($sql)){
             ?>
+            
             <input type="text" name="albumid" value="<?=$data['albumid']?>" hidden>
-            <div class="form-group">
-                <label for="namaalbum">Nama Album</label>
-                <input type="text" class="form-control" id="namaalbum" name="namaalbum" value="<?=$data['namaalbum']?>">
+            <div class="card mt-4">
+            <div class="card-header bg-primary text-white">
+                Edit Album
             </div>
-            <div class="form-group">
-                <label for="deskripsi">Deskripsi</label>
-                <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="<?=$data['deskripsi']?>">
+            <div class="card-body">
+                <form action="edit_album.php" method="post">
+                    <div class="form-group">
+                        <label for="namaalbum">Nama Album</label>
+                        <input type="text" class="form-control" id="namaalbum" name="namaalbum" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deskripsi">Deskripsi</label>
+                        <input type="text" class="form-control" id="deskripsi" name="deskripsi">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Ubah</button>
+                </form>
             </div>
-            <button type="submit" class="btn btn-primary">Ubah</button>
+        </div>
+            
             <?php
                 }
             ?>
@@ -51,6 +62,8 @@
     </div>
 
     <!-- Skrip JavaScript Bootstrap (opsional, hanya jika Anda menggunakannya) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
