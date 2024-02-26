@@ -11,43 +11,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Edit Foto</title>
+    <!-- Tambahkan Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Halaman Edit Foto</h1>
-    <p>Selamat datang <b><?=$_SESSION['namalengkap']?></b></p>
-    
-    <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="album.php">Album</a></li>
-        <li><a href="foto.php">Foto</a></li>
-        <li><a href="logout.php">Logout</a></li>
-    </ul>
+    <div class="container">
+        <h1 class="mt-4 mb-4 text-center">Halaman Edit Foto</h1>
+        <p class="mt-4 mb-4 text-center">Selamat datang <b><?=$_SESSION['namalengkap']?></b></p>
+        
+        <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="album.php">Album</a></li>
+            <li class="nav-item"><a class="nav-link" href="foto.php">Foto</a></li>
+            <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+        </ul>
 
-    <form action="update_foto.php" method="post" enctype="multipart/form-data">
-        <?php
-            include "koneksi.php";
-            $fotoid=$_GET['fotoid'];
-            $sql=mysqli_query($conn,"select * from foto where fotoid='$fotoid'");
-            while($data=mysqli_fetch_array($sql)){
-        ?>
-        <input type="text" name="fotoid" value="<?=$data['fotoid']?>" hidden>
-        <table>
-            <tr>
-                <td>Judul</td>
-                <td><input type="text" name="judulfoto" value="<?=$data['judulfoto']?>"></td>
-            </tr>
-            <tr>
-                <td>Deskripsi</td>
-                <td><input type="text" name="deskripsifoto" value="<?=$data['deskripsifoto']?>"></td>
-            </tr>
-            <tr>
-                <td>Lokasi File</td>
-                <td><input type="file" name="lokasifile"></td>
-            </tr>
-            <tr>
-                <td>Album</td>
-                <td>
-                    <select name="albumid">
+        <form action="update_foto.php" method="post" enctype="multipart/form-data">
+            <?php
+                include "koneksi.php";
+                $fotoid=$_GET['fotoid'];
+                $sql=mysqli_query($conn,"select * from foto where fotoid='$fotoid'");
+                while($data=mysqli_fetch_array($sql)){
+            ?>
+            <input type="text" name="fotoid" value="<?=$data['fotoid']?>" hidden>
+            <div class="form-group">
+                <label for="judulfoto">Judul</label>
+                <input type="text" class="form-control" id="judulfoto" name="judulfoto" value="<?=$data['judulfoto']?>">
+            </div>
+            <div class="form-group">
+                <label for="deskripsifoto">Deskripsi</label>
+                <input type="text" class="form-control" id="deskripsifoto" name="deskripsifoto" value="<?=$data['deskripsifoto']?>">
+            </div>
+            <div class="form-group">
+                <label for="lokasifile">Lokasi File</label>
+                <input type="file" class="form-control-file" id="lokasifile" name="lokasifile">
+            </div>
+            <div class="form-group">
+                <label for="albumid">Album</label>
+                <select class="form-control" id="albumid" name="albumid">
                     <?php
                         $userid=$_SESSION['userid'];
                         $sql2=mysqli_query($conn,"select * from album where userid='$userid'");
@@ -57,20 +58,16 @@
                     <?php
                         }
                     ?>
-                    </select>
-                    
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Ubah"></td>
-            </tr>
-        </table>
-        <?php
-            }
-        ?>
-    </form>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Ubah</button>
+            <?php
+                }
+            ?>
+        </form>
+    </div>
 
-    
+    <!-- Tambahkan Bootstrap JS (opsional, tergantung pada kebutuhan Anda) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
