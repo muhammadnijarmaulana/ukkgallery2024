@@ -33,6 +33,7 @@
                 $sql=mysqli_query($conn,"select * from foto where fotoid='$fotoid'");
                 while($data=mysqli_fetch_array($sql)){
             ?>
+            
             <input type="text" name="fotoid" value="<?=$data['fotoid']?>" hidden>
             <div class="form-group">
                 <label for="judulfoto">Judul</label>
