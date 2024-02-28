@@ -35,6 +35,11 @@
             ?>
             
             <input type="text" name="fotoid" value="<?=$data['fotoid']?>" hidden>
+            <div class="card mt-4">
+            <div class="card-header bg-primary text-white">
+                Edit Foto
+            </div>
+            <div class="card-body">
             <div class="form-group">
                 <label for="judulfoto">Judul</label>
                 <input type="text" class="form-control" id="judulfoto" name="judulfoto" value="<?=$data['judulfoto']?>">
