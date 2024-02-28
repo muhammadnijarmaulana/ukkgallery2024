@@ -43,7 +43,7 @@
                 include "koneksi.php";
                 if(isset($_GET['fotoid'])) {
                     $fotoid=$_GET['fotoid'];
-                    $sql=mysqli_query($conn,"select * from foto where fotoid='$fotoid'");
+                    $sql=mysqli_query($conn,"SELECT * FROM foto WHERE fotoid='$fotoid'");
                     while($data=mysqli_fetch_array($sql)){
             ?>
             <input type="text" name="fotoid" value="<?= $data['fotoid'] ?>" hidden>
@@ -97,8 +97,9 @@
                     <?php
                         include "koneksi.php";
                         $userid=$_SESSION['userid'];
-                        $sql=mysqli_query($conn,"select * from komentarfoto,user where komentarfoto.userid=user.userid");
-                        while($data=mysqli_fetch_array($sql)){
+                        $sql=mysqli_query($conn,"SELECT * FROM komentarfoto INNER JOIN user ON komentarfoto.userid=user.userid WHERE komentarfoto.fotoid='$fotoid'");
+                        if($sql){
+                            while($data=mysqli_fetch_array($sql)){
                     ?>
                         <tr>
                             <td><?= $data['komentarid'] ?></td>
@@ -108,6 +109,9 @@
                             <td><a href="hapus_komentar.php?komentarid=<?=$data['komentarid']?>" class="btn btn-danger">Hapus</a></td>
                         </tr>
                     <?php
+                            }
+                        } else {
+                            echo "Tidak ada komentar.";
                         }
                     ?>
                 </tbody>
