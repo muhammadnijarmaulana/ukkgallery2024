@@ -20,7 +20,7 @@
             margin-top: 50px;
         }
         .table-responsive {
-            margin-top: 20px;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -47,7 +47,12 @@
                     while($data=mysqli_fetch_array($sql)){
             ?>
             <input type="text" name="fotoid" value="<?= $data['fotoid'] ?>" hidden>
+           
             <div class="table-responsive">
+            <div class="card mt-4">
+            <div class="card-header bg-primary text-white">
+               Tambah Komentar
+            </div>
                 <table class="table">
                     <tr>
                         <td>Judul</td>
@@ -85,6 +90,7 @@
                         <th>Nama</th>
                         <th>Komentar</th>
                         <th>Tanggal</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
