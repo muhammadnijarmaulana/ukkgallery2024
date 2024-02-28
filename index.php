@@ -98,10 +98,11 @@
                     <?php
                         include "koneksi.php";
                         $sql=mysqli_query($conn,"select * from foto,user where foto.userid=user.userid");
+                        $nomor = 1 ;
                         while($data=mysqli_fetch_array($sql)){
                     ?>
                         <tr>
-                            <td><?=$data['fotoid']?></td>
+                            <td><?=$nomor++ ?></td>
                             <td><?=$data['judulfoto']?></td>
                             <td><?=$data['deskripsifoto']?></td>
                             <td><img src="gambar/<?=$data['lokasifile']?>" width="200px" class="img-fluid"></td>
