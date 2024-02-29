@@ -44,11 +44,11 @@
                 <form action="edit_album.php" method="post">
                     <div class="form-group">
                         <label for="namaalbum">Nama Album</label>
-                        <input type="text" class="form-control" id="namaalbum" name="namaalbum" required>
+                        <input type="text" class="form-control" id="namaalbum" value="<?= $data['namaalbum']?>" name="namaalbum" required>
                     </div>
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi</label>
-                        <input type="text" class="form-control" id="deskripsi" name="deskripsi">
+                        <input type="text" class="form-control" id="deskripsi" value="<?= $data['deskripsi']?>" name="deskripsi">
                     </div>
                     <button type="submit" class="btn btn-primary">Ubah</button>
                 </form>
