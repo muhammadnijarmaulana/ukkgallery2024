@@ -11,19 +11,19 @@
             background-color: #f8f9fa;
         }
         .container {
-            margin-top: 100px;
+            margin-top: 50px;
             max-width: 400px;
             background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
+            padding: 30px;
+            border-radius: 50px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         label {
             font-weight: bold;
@@ -35,7 +35,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Registrasi</h1>
+        <h1>Halaman Registrasi</h1>
         <form action="proses_register.php" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
@@ -59,6 +59,9 @@
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
+        <div class="register-link">
+            <p class="mt-2 text-center">Sudah punya akun?<button type="button" class="btn btn-link" onclick="location.href='login.php'">Login</button></a>
+        </div>
     </div>
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
